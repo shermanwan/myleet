@@ -8,7 +8,7 @@ public class Q35SearchInsertTests {
   Q35SearchInsert solution = new Q35SearchInsert();
 
   @Test
-  public void test() {
+  public void basic() {
     Assertions.assertEquals(2, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 5));
     Assertions.assertEquals(1, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 2));
     Assertions.assertEquals(4, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 7));
@@ -16,7 +16,7 @@ public class Q35SearchInsertTests {
   }
 
   @Test
-  public void testBoundary() {
+  public void boundary() {
     int index = 1;
     Assertions.assertEquals(0, solution.searchInsert(new int[] {}, 1), "Q35.boundary." + index++);
     Assertions.assertEquals(0, solution.searchInsert(new int[] { 1 }, 1), "Q35.boundary." + index++);
