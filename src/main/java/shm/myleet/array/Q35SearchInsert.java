@@ -1,4 +1,4 @@
-package shm.myleet;
+package shm.myleet.array;
 
 /*
   https://leetcode-cn.com/problems/search-insert-position/

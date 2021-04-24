@@ -1,4 +1,4 @@
-package shm.myleet;
+package shm.myleet.array;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
