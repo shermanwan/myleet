@@ -9,10 +9,21 @@ public class Q35SearchInsertTests {
 
   @Test
   public void test() {
-    Assertions.assertEquals(solution.searchInsert(new int[] { 1, 3, 5, 6 }, 5), 2);
-    Assertions.assertEquals(solution.searchInsert(new int[] { 1, 3, 5, 6 }, 2), 1);
-    Assertions.assertEquals(solution.searchInsert(new int[] { 1, 3, 5, 6 }, 7), 4);
-    Assertions.assertEquals(solution.searchInsert(new int[] { 1, 3, 5, 6 }, 0), 0);
+    Assertions.assertEquals(2, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 5));
+    Assertions.assertEquals(1, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 2));
+    Assertions.assertEquals(4, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 7));
+    Assertions.assertEquals(0, solution.searchInsert(new int[] { 1, 3, 5, 6 }, 0));
+  }
+
+  @Test
+  public void testBoundary() {
+    int index = 1;
+    Assertions.assertEquals(0, solution.searchInsert(new int[] {}, 1), "Q35.boundary." + index++);
+    Assertions.assertEquals(0, solution.searchInsert(new int[] { 1 }, 1), "Q35.boundary." + index++);
+    Assertions.assertEquals(0, solution.searchInsert(new int[] { 2 }, 1), "Q35.boundary." + index++);
+    Assertions.assertEquals(1, solution.searchInsert(new int[] { 2 }, 3), "Q35.boundary." + index++);
+    Assertions.assertEquals(0, solution.searchInsert(new int[] { 2, 3 }, 1), "Q35.boundary." + index++);
+    Assertions.assertEquals(2, solution.searchInsert(new int[] { 2, 3 }, 4), "Q35.boundary." + index++);
   }
 
 }

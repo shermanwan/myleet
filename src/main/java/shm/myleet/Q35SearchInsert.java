@@ -1,6 +1,8 @@
 package shm.myleet;
 
 /*
+  https://leetcode-cn.com/problems/search-insert-position/
+
   编号35：搜索插入位置
   给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。
 
@@ -25,6 +27,22 @@ package shm.myleet;
 
 class Q35SearchInsert {
   public int searchInsert(int[] nums, int target) {
-    return 0;
+    return searchInsertBetween(0, nums.length, nums, target);
+  }
+
+  public int searchInsertBetween(int leftIndex, int rightIndex, int[] nums, int target) {
+    if (leftIndex >= rightIndex) {
+      // 子串为空，无值
+      return rightIndex;
+    } else {
+      int middleIndex = (leftIndex + rightIndex) / 2;
+      if (nums[middleIndex] == target) {
+        return middleIndex;
+      } else if (nums[middleIndex] < target) {
+        return searchInsertBetween(middleIndex + 1, rightIndex, nums, target);
+      } else { // if (nums[middleIndex] > target) {
+        return searchInsertBetween(leftIndex, middleIndex, nums, target);
+      }
+    }
   }
 }
