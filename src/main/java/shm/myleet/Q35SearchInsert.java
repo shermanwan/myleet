@@ -1,6 +1,6 @@
-package shm.myleet.q35SearchInsert;
+package shm.myleet;
 
-class Solution {
+class Q35SearchInsert {
     public int searchInsert(int[] nums, int target) {
         return 0;
     }
