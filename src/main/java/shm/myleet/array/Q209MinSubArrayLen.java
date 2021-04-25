@@ -8,6 +8,7 @@ public class Q209MinSubArrayLen {
     }
 
     int left = 0, right = 0, sum = 0;
+    // 从0开始找满足条件的窗口
     while (sum < target) {
       if (right < nums.length) {
         sum += nums[right];
@@ -18,12 +19,13 @@ public class Q209MinSubArrayLen {
     }
 
     while (true) {
+      // 窗口左侧缩减，看是否能满足条件
       while (sum - nums[left] >= target) {
         sum -= nums[left];
         left++;
-        System.out.println(String.format("1. left=%d,right=%d,sum=%d", left, right, sum));
       }
 
+      // 窗口整体右移
       if (right >= nums.length) {
         break;
       } else {
@@ -31,7 +33,6 @@ public class Q209MinSubArrayLen {
         sum += nums[right];
         left++;
         right++;
-        System.out.println(String.format("2. left=%d,right=%d,sum=%d", left, right, sum));
       }
     }
 

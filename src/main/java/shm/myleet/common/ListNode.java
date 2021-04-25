@@ -1,7 +1,5 @@
 package shm.myleet.common;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Vector;
 
 // Definition for singly-linked list.
@@ -29,13 +27,14 @@ public class ListNode {
     return cur;
   }
 
-  public int[] toArray() {
+  public static int[] toArray(ListNode listNode) {
     Vector<Integer> v = new Vector<Integer>();
-    ListNode cur = this;
+    ListNode cur = listNode;
     while (cur != null) {
       v.add(cur.val);
       cur = cur.next;
     }
-    return v.toArray(new int[]{});
+    // List 转 int[]
+    return v.stream().mapToInt(Integer::valueOf).toArray();
   }
 }
