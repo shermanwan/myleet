@@ -1,16 +1,21 @@
 package shm.myleet.array;
 
-// https://leetcode-cn.com/problems/search-insert-position/
+/**
+ * https://leetcode-cn.com/problems/search-insert-position/
+ * 给定一个排序数组和一个目标值，在数组中找到目标值，并返回其索引。如果目标值不存在于数组中，返回它将会被按顺序插入的位置。 你可以假设数组中无重复元素。
+ */
 class Q35SearchInsert {
   public int searchInsert(int[] nums, int target) {
     return searchInsertBetween(0, nums.length, nums, target);
   }
 
+  // 递归搜索，leftIndex/rightIndex 保留原数组索引
   public int searchInsertBetween(int leftIndex, int rightIndex, int[] nums, int target) {
     if (leftIndex >= rightIndex) {
       // 子串为空，无值
       return rightIndex;
     } else {
+      // 二分搜索
       int middleIndex = (leftIndex + rightIndex) / 2;
       if (nums[middleIndex] == target) {
         return middleIndex;
