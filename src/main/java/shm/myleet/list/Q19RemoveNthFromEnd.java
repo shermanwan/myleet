@@ -3,11 +3,19 @@ package shm.myleet.list;
 import shm.myleet.common.ListNode;
 
 /**
- * https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
- * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+ * 19. 删除链表的倒数第 N 个结点
+ *
+ * @see https://leetcode-cn.com/problems/remove-nth-node-from-end-of-list/
  */
 class Q19RemoveNthFromEnd {
 
+  /**
+   * 给你一个链表，删除链表的倒数第 n 个结点，并且返回链表的头结点。
+   *
+   * @param head
+   * @param n
+   * @return
+   */
   public ListNode removeNthFromEnd(ListNode head, int n) {
     // 虚拟节点头
     ListNode virtualHead = new ListNode();
