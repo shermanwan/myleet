@@ -20,8 +20,8 @@ public class Q20IsValid {
    * @return
    */
   public boolean isValid(String s) {
-
     Stack<Character> stack = new Stack<>();
+
     for (int i = 0; i < s.length(); i++) {
       char right = s.charAt(i);
       if (!stack.empty() && match(stack.peek().charValue(), right)) {
