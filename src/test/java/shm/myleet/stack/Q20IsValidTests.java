@@ -16,4 +16,10 @@ public class Q20IsValidTests {
     Assertions.assertEquals(true, solution.isValid("{[]}"));
   }
 
+  @Test
+  public void boundary() {
+    Assertions.assertEquals(true, solution.isValid(""));
+    Assertions.assertEquals(false, solution.isValid("("));
+  }
+
 }
