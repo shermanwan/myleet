@@ -1,11 +1,9 @@
 package shm.myleet.stack;
 
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
-import java.util.Vector;
-import java.util.Deque;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -39,7 +37,7 @@ public class Q239MaxSlidingWindow {
 
     // 移动 SlidingWindow
     for (int i = k; i < nums.length; i++) {
-      int max = window.move(nums[i-k], nums[i]);
+      int max = window.move(nums[i - k], nums[i]);
       result.add(max);
     }
 
@@ -71,7 +69,7 @@ public class Q239MaxSlidingWindow {
 
       candidates.addLast(inVal);
 
-      log.info(candidates.toString());
+      log(candidates.toString());
 
       return candidates.getFirst();
     }
@@ -79,6 +77,10 @@ public class Q239MaxSlidingWindow {
     int max() {
       return candidates.getFirst();
     }
+  }
+
+  private void log(String format, Object... args) {
+    log.info(format, args);
   }
 
 }

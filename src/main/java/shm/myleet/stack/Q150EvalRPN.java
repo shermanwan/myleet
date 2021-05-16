@@ -33,16 +33,16 @@ public class Q150EvalRPN {
         }
 
         int right = stack.pop();
-        // log.info("pop " + right);
+        log("pop " + right);
         int left = stack.pop();
-        // log.info("pop " + left);
+        log("pop " + left);
         int result = executeOperator(token, left, right);
 
-        // log.info("push " + result);
+        log("push " + result);
         stack.push(result);
       } else {
         // token is digit, push to stack
-        // log.info("push " + token);
+        log("push " + token);
         stack.push(Integer.valueOf(token));
       }
     }
@@ -70,6 +70,10 @@ public class Q150EvalRPN {
       return left / right;
     }
     throw new RuntimeException("invalid operator " + token);
+  }
+
+  private void log(String format, Object... args) {
+    log.info(format, args);
   }
 
 }
