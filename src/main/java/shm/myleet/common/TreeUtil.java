@@ -10,6 +10,10 @@ public class TreeUtil {
   public static TreeNode fromArray(Object[] vals) {
     Queue<TreeNode> nodeQ = new LinkedList<>();
 
+    if (vals == null || vals.length == 0) {
+      return null;
+    }
+
     TreeNode root = new TreeNode((int) vals[0]);
     nodeQ.add(root);
 

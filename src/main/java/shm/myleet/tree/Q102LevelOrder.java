@@ -64,7 +64,7 @@ public class Q102LevelOrder {
   }
 
   private void log(String format, Object... args) {
-    // log.info(format, args);
+    log.info(format, args);
   }
 
 }
