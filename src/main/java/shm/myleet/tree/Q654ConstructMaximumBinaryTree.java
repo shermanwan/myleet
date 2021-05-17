@@ -22,7 +22,30 @@ public class Q654ConstructMaximumBinaryTree {
    * @return
    */
   public TreeNode constructMaximumBinaryTree(int[] nums) {
+    return constructSubBinaryTree(nums, 0, nums.length);
+  }
 
+  private TreeNode constructSubBinaryTree(int[] nums, int start, int end) {
+    TreeNode node = null;
+    if (start == end) {
+      // 子树为空
+      // pass
+    } else {
+      // 查找 nums 区间最大值
+      int maxValue = Integer.MIN_VALUE;
+      int maxValueIndex = -1;
+      for (int i = start; i < end; i++) {
+        if (maxValue < nums[i]) {
+          maxValue = nums[i];
+          maxValueIndex = i;
+        }
+      }
+      // 创建 TreeNode, 递归创建左右子树
+      node = new TreeNode(maxValue);
+      node.left = constructSubBinaryTree(nums, start, maxValueIndex);
+      node.right = constructSubBinaryTree(nums, maxValueIndex + 1, end);
+    }
+    return node;
   }
 
 }

@@ -14,9 +14,37 @@ public class Q654ConstructMaximumBinaryTreeTests {
   @Test
   public void basic1() {
     int[] input = new int[] { 3, 2, 1, 6, 0, 5 };
-    TreeNode actual = solution.constructMaximumBinaryTree(input);
-    Object[] expect = new Object[] { 6, 3, 5, null, 2, 0, null, null, 15 };
-    Assertions.assertArrayEquals(expect, TreeUtil.levelOrder(actual));
+    TreeNode output = solution.constructMaximumBinaryTree(input);
+    Object[] actual = TreeUtil.levelOrder(output);
+    Object[] expect = new Object[] { 6, 3, 5, null, 2, 0, null, null, 1 };
+    Assertions.assertArrayEquals(expect, actual);
+  }
+
+  @Test
+  public void basic2() {
+    int[] input = new int[] { 3, 2, 1 };
+    TreeNode output = solution.constructMaximumBinaryTree(input);
+    Object[] actual = TreeUtil.levelOrder(output);
+    Object[] expect = new Object[] { 3, null, 2, null, 1 };
+    Assertions.assertArrayEquals(expect, actual);
+  }
+
+  @Test
+  public void boundary1() {
+    int[] input = new int[] { 1 };
+    TreeNode output = solution.constructMaximumBinaryTree(input);
+    Object[] actual = TreeUtil.levelOrder(output);
+    Object[] expect = new Object[] { 1 };
+    Assertions.assertArrayEquals(expect, actual);
+  }
+
+  @Test
+  public void boundary2() {
+    int[] input = new int[] {};
+    TreeNode output = solution.constructMaximumBinaryTree(input);
+    Object[] actual = TreeUtil.levelOrder(output);
+    Object[] expect = new Object[] {};
+    Assertions.assertArrayEquals(expect, actual);
   }
 
 }

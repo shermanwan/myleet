@@ -37,44 +37,31 @@ public class TreeUtil {
   }
 
   public static Object[] levelOrder(TreeNode root) {
-    List<Object> levels = new ArrayList<Object>();
+
+    List<Object> result = new ArrayList<Object>();
     if (root == null) {
-      return levels.toArray();
+      return result.toArray();
     }
 
-    // 当前级 nodes
-    List<TreeNode> curLevelNodes = new ArrayList<>();
-    // 下一级 nodes
-    List<TreeNode> subLevelNodes = new ArrayList<>();
+    Queue<TreeNode> nodeQ = new LinkedList<>();
+    nodeQ.add(root);
 
-    curLevelNodes.add(root);
-
-    // 是否还有下层非空元素
-    boolean hasSub = true;
-    while (hasSub) {
-      hasSub = false;
-
-      for (TreeNode curNode : curLevelNodes) {
-        if (curNode != null) {
-          levels.add(curNode.val);
-          subLevelNodes.add(curNode.left);
-          subLevelNodes.add(curNode.right);
-          if (curNode.left != null || curNode.right != null) {
-            hasSub = true;
-          }
-        } else {
-          levels.add(null);
-          subLevelNodes.add(null);
-          subLevelNodes.add(null);
+    while (!nodeQ.isEmpty()) {
+      TreeNode curNode = nodeQ.poll();
+      if (curNode != null) {
+        result.add(curNode.val);
+        // 有一个子节点不为空，就要继续向下搜索
+        if (curNode.left != null || curNode.right != null) {
+          nodeQ.add(curNode.left);
+          nodeQ.add(curNode.right);
         }
+      } else {
+        // 空节点要加入 null 值，但是不再向下搜索
+        result.add(null);
       }
-
-      // 下一级变当前级
-      curLevelNodes = subLevelNodes;
-      subLevelNodes = new ArrayList<>();
     }
 
-    return levels.toArray();
+    return result.toArray();
   }
 
 }
