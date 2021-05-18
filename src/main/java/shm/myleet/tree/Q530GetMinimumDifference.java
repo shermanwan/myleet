@@ -1,9 +1,5 @@
 package shm.myleet.tree;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-
 import com.ciaoshen.leetcode.util.TreeNode;
 
 import lombok.extern.slf4j.Slf4j;
@@ -26,26 +22,35 @@ public class Q530GetMinimumDifference {
     if (root == null) {
       return 0;
     }
-    // 中序遍历得到排序数组
-    Stack<TreeNode> stack = new Stack<>();
-    int previewValue = Integer.MAX_VALUE;
-    int min = Integer.MAX_VALUE;
-    stack.push(root);
-    while (!stack.empty()) {
-      TreeNode node = stack.peek();
-      // 中序遍历
-      if (node.left != null) {
-        stack.push(node.left);
-      } else {
-        int curValue = node.val;
-        min = Math.min(min, Math.abs(previewValue - curValue));
-        if (node.right != null) {
-          stack.push(node.right);
-        }
-      }
+
+    Visitor visitor = new Visitor();
+    visitor.min = Integer.MAX_VALUE;
+    visitor.previewValue = Integer.MAX_VALUE;
+
+    visit(root, visitor);
+
+    return visitor.min;
+  }
+
+  // 中序遍历
+  private void visit(TreeNode node, Visitor visitor) {
+    if (node == null) {
+      return;
     }
 
-    return min;
+    visit(node.left, visitor);
+
+    // 更新全局 previewValue 和 min
+    int curValue = node.val;
+    visitor.min = Math.min(visitor.min, Math.abs(visitor.previewValue - curValue));
+    visitor.previewValue = curValue;
+
+    visit(node.right, visitor);
+  }
+
+  class Visitor {
+    public int min;
+    public int previewValue;
   }
 
 }
