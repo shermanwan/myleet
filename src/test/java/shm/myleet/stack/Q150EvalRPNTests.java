@@ -29,12 +29,12 @@ public class Q150EvalRPNTests {
   }
 
   @Test
-  public void boundar2() {
+  public void boundary2() {
     Assertions.assertEquals(9, solution.evalRPN(new String[] { "2", "1", "+", "1" }));
   }
 
   @Test
-  public void boundar3() {
+  public void boundary3() {
     Assertions.assertEquals(9, solution.evalRPN(new String[] { "+" }));
   }
 
