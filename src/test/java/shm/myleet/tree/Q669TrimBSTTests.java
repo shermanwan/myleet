@@ -22,7 +22,28 @@ public class Q669TrimBSTTests {
   public void basic2() {
     TreeNode input = TreeUtil.fromArray(new Object[] { 3, 0, 4, null, 2, null, null, 1 });
     TreeNode actual = solution.trimBST(input, 1, 3);
-    Assertions.assertArrayEquals(new Object[] { 3, 2, null, 1 }, TreeUtil.levelOrder(actual));
+    Assertions.assertArrayEquals(new Object[] { 3, 2, null, 1, null }, TreeUtil.levelOrder(actual));
+  }
+
+  @Test
+  public void basic3() {
+    TreeNode input = TreeUtil.fromArray(new Object[] { 1 });
+    TreeNode actual = solution.trimBST(input, 1, 2);
+    Assertions.assertArrayEquals(new Object[] { 1 }, TreeUtil.levelOrder(actual));
+  }
+
+  @Test
+  public void basic4() {
+    TreeNode input = TreeUtil.fromArray(new Object[] { 1, null, 2 });
+    TreeNode actual = solution.trimBST(input, 1, 3);
+    Assertions.assertArrayEquals(new Object[] { 1, null, 2 }, TreeUtil.levelOrder(actual));
+  }
+
+  @Test
+  public void basic5() {
+    TreeNode input = TreeUtil.fromArray(new Object[] { 1, null, 2 });
+    TreeNode actual = solution.trimBST(input, 2, 4);
+    Assertions.assertArrayEquals(new Object[] { 2 }, TreeUtil.levelOrder(actual));
   }
 
 }
