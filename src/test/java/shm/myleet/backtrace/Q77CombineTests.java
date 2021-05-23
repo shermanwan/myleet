@@ -12,7 +12,7 @@ public class Q77CombineTests {
 
   @Test
   public void basic1() {
-    int[][] expect = { { 2, 4 }, { 3, 4 }, { 2, 3 }, { 1, 2 }, { 1, 3 }, { 1, 4 }, };
+    int[][] expect = { { 1, 2 }, { 1, 3 }, { 1, 4 }, { 2, 3 }, { 2, 4 }, { 3, 4 } };
     List<List<Integer>> actual = solution.combine(4, 2);
     AssertExt.assertArraysEqual(expect, AssertExt.valueOf(actual));
   }
