@@ -5,8 +5,6 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 
-import shm.myleet.common.AssertExt;
-
 public class Q17LetterCombinationsTests {
 
   Q17LetterCombinations solution = new Q17LetterCombinations();
