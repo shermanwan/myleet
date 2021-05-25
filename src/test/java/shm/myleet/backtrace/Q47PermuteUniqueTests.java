@@ -18,4 +18,12 @@ public class Q47PermuteUniqueTests {
     AssertExt.assertArraysEqual(expect, AssertExt.valueOf(actual));
   }
 
+  @Test
+  public void demo2() {
+    int[] input = { 1, 2, 3 };
+    List<List<Integer>> actual = solution.permuteUnique(input);
+    int[][] expect = { { 1, 2, 3 }, { 1, 3, 2 }, { 2, 1, 3 }, { 2, 3, 1 }, { 3, 1, 2 }, { 3, 2, 1 } };
+    AssertExt.assertArraysEqual(expect, AssertExt.valueOf(actual));
+  }
+
 }

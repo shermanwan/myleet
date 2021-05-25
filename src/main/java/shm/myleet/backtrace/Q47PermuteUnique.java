@@ -40,9 +40,20 @@ public class Q47PermuteUnique {
       return;
     }
 
-    for(int i=0; i<input.length; i++){
-      if(used[i])
+    for (int i = 0; i < input.length; i++) {
+      // 树枝用过
+      if (used[i] == true) {
+        continue;
+      }
+      // 树层相同值用过
+      if (i > 0 && input[i - 1] == input[i] && used[i - 1] == false) {
+        continue;
+      }
+      path.push(input[i]);
+      used[i] = true;
       backtracking(path, used);
+      path.pop();
+      used[i] = false;
     }
   }
 
