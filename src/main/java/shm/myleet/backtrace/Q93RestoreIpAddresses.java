@@ -30,6 +30,7 @@ public class Q93RestoreIpAddresses {
   }
 
   void backtracking(Stack<String> path, int startIndex) {
+    log("backtracking {} {}", path, startIndex);
     if (path.size() == 3) {
       // 剩下的是否是 valid 地址
       String lastSection = input.substring(startIndex);
@@ -47,7 +48,8 @@ public class Q93RestoreIpAddresses {
     }
 
     for (int i = 0; i < 3 && i + startIndex < input.length(); i++) {
-      String section = input.substring(startIndex, startIndex + i);
+      // 前闭后开区间 [startIndex, startIndex+i+1)
+      String section = input.substring(startIndex, startIndex + i + 1);
       if (isValidSection(section)) {
         path.push(section);
         backtracking(path, startIndex + i + 1);
@@ -57,11 +59,18 @@ public class Q93RestoreIpAddresses {
   }
 
   private boolean isValidSection(String section) {
-    if (section.length() == 0) {
+    if (section.length() == 0 || section.length() > 3) {
       return false;
     }
+    if (section.startsWith("0")) {
+      return "0".equals(section);
+    }
     int ip = Integer.parseInt(section);
-    return ip >= 0 && ip <= 255 && (ip != 0 && !section.startsWith("0"));
+    return ip >= 0 && ip <= 255;
+  }
+
+  private void log(String format, Object... args) {
+    log.info(format, args);
   }
 
 }
