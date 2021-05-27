@@ -13,7 +13,7 @@ public class Q51SolveNQueensTests {
   @Test
   public void demo1() {
     List<List<String>> actual = solution.solveNQueens(4);
-    String[][] expect = {{".Q..","...Q","Q...","..Q."},{"..Q.","Q...","...Q",".Q.."}};
+    String[][] expect = { { ".Q..", "...Q", "Q...", "..Q." }, { "..Q.", "Q...", "...Q", ".Q.." } };
     AssertExt.assertArraysEqual(expect, AssertExt.valueOfStringLists(actual));
   }
 
