@@ -43,7 +43,7 @@ public class Q51SolveNQueens {
     }
 
     for (int col = 0; col < input; col++) {
-      if (!conflict(path, path.size() + 1, col)) {
+      if (!conflict(path, path.size(), col)) {
         path.push(col);
         backtracking(path);
         path.pop();

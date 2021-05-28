@@ -17,4 +17,11 @@ public class Q51SolveNQueensTests {
     AssertExt.assertArraysEqual(expect, AssertExt.valueOfStringLists(actual));
   }
 
+  @Test
+  public void demo2() {
+    List<List<String>> actual = solution.solveNQueens(1);
+    String[][] expect = { { "Q" } };
+    AssertExt.assertArraysEqual(expect, AssertExt.valueOfStringLists(actual));
+  }
+
 }
