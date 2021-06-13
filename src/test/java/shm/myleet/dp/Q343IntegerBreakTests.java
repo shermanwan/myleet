@@ -11,6 +11,7 @@ public class Q343IntegerBreakTests {
   public void demo1() {
     int input = 2;
     int expect = 1;
+
     int output = solution.integerBreak(input);
     Assertions.assertEquals(expect, output);
   }
@@ -19,6 +20,7 @@ public class Q343IntegerBreakTests {
   public void demo2() {
     int input = 10;
     int expect = 36;
+
     int output = solution.integerBreak(input);
     Assertions.assertEquals(expect, output);
   }

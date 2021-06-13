@@ -26,7 +26,7 @@ public class Q416CanPartitionTests {
   }
 
   @Test
-  public void wrong1() {
+  public void revise1() {
     int[] input = { 1, 5, 3 };
     boolean expect = false;
 
@@ -35,7 +35,7 @@ public class Q416CanPartitionTests {
   }
 
   @Test
-  public void wrong2() {
+  public void revise2() {
     int[] input = { 3, 3, 3, 4, 5 };
     boolean expect = true;
 
@@ -44,7 +44,7 @@ public class Q416CanPartitionTests {
   }
 
   @Test
-  public void wrong3() {
+  public void revise3() {
     int[] input = { 2, 2, 1, 1 };
     boolean expect = true;
 
