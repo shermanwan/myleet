@@ -30,7 +30,8 @@ public class Q416CanPartition {
     // 1. 确定dp数组以及下标的含义
     // dp[i][j] 背包容量j，装载编号[0-i]物品的最大装载量
     // 简化为滚动数组，dp[j] 背包容量j，物品编号滚动下的最大装载量
-    int dp[] = new int[capacity];
+    // 定义数组放 [0, capacity], size 要大一号
+    int dp[] = new int[capacity + 1];
 
     // 2. 确定递推公式
     // 来自两方面
@@ -43,7 +44,7 @@ public class Q416CanPartition {
 
     // 3. dp数组如何初始化
     // 只放物品0, 背包 0-capacity的最大装载量
-    for (int j = 0; j < capacity; j++) {
+    for (int j = 0; j < dp.length; j++) {
       dp[j] = nums[0] <= j ? nums[0] : 0;
     }
     log("i({}), dp = {}", 0, dp);
@@ -52,7 +53,7 @@ public class Q416CanPartition {
     for (int i = 1; i < nums.length; i++) {
       // 滚动数组必须从后往前
       // 如先计算前值，计算 dp[i] 使用的已经是加入物品i后的结果，而非 dp[i-1]
-      for (int j = capacity - 1; j >= 0; j--) {
+      for (int j = dp.length - 1; j >= 0; j--) {
         if (j - nums[i] >= 0) {
           dp[j] = Math.max(dp[j], dp[j - nums[i]] + nums[i]);
         }
@@ -61,7 +62,7 @@ public class Q416CanPartition {
       log("i({}), dp = {}", i, dp);
 
       // 放入物品最大可以到 capacity，无需继续计算
-      if (dp[capacity - 1] == capacity) {
+      if (dp[dp.length - 1] == capacity) {
         return true;
       }
     }
