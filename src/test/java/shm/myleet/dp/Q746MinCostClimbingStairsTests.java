@@ -24,7 +24,7 @@ public class Q746MinCostClimbingStairsTests {
   }
 
   @Test
-  public void official1() {
+  public void wrong1() {
     int[] input = { 1, 1, 0, 0 };
     int expect = 1;
     int output = solution.minCostClimbingStairs(input);
