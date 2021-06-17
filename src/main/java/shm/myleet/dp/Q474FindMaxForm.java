@@ -40,7 +40,7 @@ public class Q474FindMaxForm {
     log("nums = {}", nums);
 
     // 1. 确定dp数组以及下标的含义
-    // dp]i][x][y] 任选下标0-i的str，背包最大x个0，y个1，做多可以放的数量
+    // dp[i][x][y] 任选下标0-i的str，背包最大x个0，y个1，做多可以放的数量
     // 滚动数组就是 dp[x][y]
     int[][] dp = new int[m + 1][n + 1];
 
